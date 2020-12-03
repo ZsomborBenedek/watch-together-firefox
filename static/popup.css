@@ -1,0 +1,45 @@
+body {
+    width: 300px;
+    padding: 5px;
+}
+
+.infoText {
+    text-align: center;
+    color: gray;
+}
+
+#start,
+#initiator,
+#joiner {
+    margin: 10px;
+}
+
+#footer {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#backBtn {
+    padding: 0px;
+    margin: 0px;
+}
+
+.custom-control-input-red:focus~.custom-control-label::before {
+    border-color: #ff4444 !important;
+    box-shadow: 0 0 0 0.2rem #ff444449 !important;
+}
+
+.custom-control-input-red:checked~.custom-control-label::before {
+    border-color: #ff4444 !important;
+    background-color: #ff4444 !important;
+}
+
+.custom-control-input-red:focus:not(:checked)~.custom-control-label::before {
+    border-color: #ff444486 !important;
+}
+
+.custom-control-input-red:not(:disabled):active~.custom-control-label::before {
+    background-color: #fdc9c9 !important;
+    border-color: #fdc9c9 !important;
+}
