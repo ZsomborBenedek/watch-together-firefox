@@ -66,8 +66,8 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
             remoteId.value = changes[key].newValue;
         else if (key === 'sync') {
             vidSync.checked = changes[key].newValue;
-            vidSync.parentElement.children[1].innerHTML =
-                vidSync.checked ? 'Video syncing <b>on</b>' : 'Video syncing <b>off</b>';
+            vidSync.parentElement.children[1].textContent =
+                vidSync.checked ? 'Video syncing on' : 'Video syncing off';
         }
     }
 });
@@ -97,8 +97,8 @@ function initPopup() {
 
     chrome.storage.local.get('sync', function (result) {
         vidSync.checked = result.sync;
-        vidSync.parentElement.children[1].innerHTML =
-            vidSync.checked ? 'Video syncing <b>on</b>' : 'Video syncing <b>off</b>';
+        vidSync.parentElement.children[1].textContent =
+        vidSync.checked ? 'Video syncing on' : 'Video syncing off';
     });
 
     newSessionBtn.addEventListener('click', function () {
