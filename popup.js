@@ -77,25 +77,25 @@ window.addEventListener('load', initPopup, false);
 
 function initPopup() {
 
-    chrome.storage.sync.get('state', function (result) {
+    chrome.storage.local.get('state', function (result) {
         setState(result.state);
     });
 
-    chrome.storage.sync.get('connected', function (result) {
+    chrome.storage.local.get('connected', function (result) {
         connected(result.connected);
     });
 
-    chrome.storage.sync.get('ownId', function (result) {
+    chrome.storage.local.get('ownId', function (result) {
         if (result.ownId != null)
             ownId.value = result.ownId;
     });
 
-    chrome.storage.sync.get('remoteId', function (result) {
+    chrome.storage.local.get('remoteId', function (result) {
         if (result.remoteId != null)
             remoteId.value = result.remoteId;
     });
 
-    chrome.storage.sync.get('sync', function (result) {
+    chrome.storage.local.get('sync', function (result) {
         vidSync.checked = result.sync;
         vidSync.parentElement.children[1].innerHTML =
             vidSync.checked ? 'Video syncing <b>on</b>' : 'Video syncing <b>off</b>';
@@ -103,13 +103,13 @@ function initPopup() {
 
     newSessionBtn.addEventListener('click', function () {
         setState('initiate');
-        chrome.storage.sync.set({ state: 'initiate' }, function () { });
+        chrome.storage.local.set({ state: 'initiate' }, function () { });
         chrome.runtime.sendMessage({ action: 'newSession' });
     }, false);
 
     joinSessionBtn.addEventListener('click', function () {
         setState('join');
-        chrome.storage.sync.set({ state: 'join' }, function () { });
+        chrome.storage.local.set({ state: 'join' }, function () { });
     }, false);
 
     copyButton.addEventListener('click', function () {
@@ -132,6 +132,6 @@ function initPopup() {
     }, false);
 
     vidSync.addEventListener('click', function () {
-        chrome.storage.sync.set({ sync: vidSync.checked }, function () { });
+        chrome.storage.local.set({ sync: vidSync.checked }, function () { });
     });
 }
