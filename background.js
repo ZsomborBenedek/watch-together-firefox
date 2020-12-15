@@ -150,8 +150,8 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
     }
 });
 
-chrome.runtime.onSuspend.addListener(function () {
-    console.log("Watchtogether extension suspended!");
+// chrome.runtime.onSuspend.addListener(function () {
+//     console.log("Watchtogether extension suspended!");
 
-    disconnectPeers();
-});
+//     disconnectPeers();
+// });
