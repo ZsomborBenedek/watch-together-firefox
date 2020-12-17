@@ -37,21 +37,12 @@ function setState(state) {
 }
 
 function connected(connected) {
-    if (connected) {
-        remoteId.disabled = true;
-        connectButton.hidden = true;
-        disconnectButton.hidden = false;
-        footer.children[0].hidden = true;
-        footer.children[1].hidden = false;
-        vidSync.checked = true;
-    } else {
-        remoteId.disabled = false;
-        connectButton.hidden = false;
-        disconnectButton.hidden = true;
-        footer.children[0].hidden = false;
-        footer.children[1].hidden = true;
-        vidSync.checked = false;
-    }
+    remoteId.disabled = connected ? true : false;
+    connectButton.hidden = connected ? true : false;
+    disconnectButton.hidden = connected ? false : true;
+    footer.children[0].hidden = connected ? true : false;
+    footer.children[1].hidden = connected ? false : true;
+    vidSync.checked = connected ? true : false;
 }
 
 chrome.storage.onChanged.addListener(function (changes, namespace) {
